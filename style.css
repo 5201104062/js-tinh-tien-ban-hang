@@ -1,0 +1,177 @@
+/* ===========================================================
+   Bài 3.4 – Ứng dụng Tính tiền bán hàng
+   =========================================================== */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f2f2;
+  color: #222;
+  margin: 0;
+  padding: 30px 15px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin: 0 0 18px;
+}
+
+.vung-bang {
+  max-width: 860px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+#bang-hang {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+#bang-hang th,
+#bang-hang td {
+  border: 1px solid #777;
+  padding: 6px 8px;
+}
+
+#bang-hang th {
+  background: #c4c4c4;
+}
+
+/* 2 cột đầu và dòng cuối nền xám giống Hình 3.5 */
+#bang-hang tbody td:nth-child(1),
+#bang-hang tbody td:nth-child(2),
+#bang-hang tfoot td {
+  background: #e2e2e2;
+}
+
+#bang-hang tbody td:nth-child(1),
+#bang-hang tbody td:nth-child(6) {
+  text-align: center;
+}
+
+#bang-hang input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 6px;
+  font-size: 14px;
+  border: 1px solid #aaa;
+}
+
+#bang-hang input[readonly] {
+  background: #f7f7f7;
+  color: #555;
+}
+
+#bang-hang input:disabled {
+  background: #ececec;
+  color: #999;
+}
+
+/* Ô số lượng nhập sai */
+#bang-hang input.sai {
+  border: 2px solid #d32f2f;
+  background: #fdecea;
+}
+
+#bang-hang input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+#bang-hang #tong-cong {
+  display: inline-block;
+  width: 110px;
+  font-weight: bold;
+  color: #000;
+}
+
+button {
+  padding: 5px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#thong-bao {
+  max-width: 860px;
+  min-height: 18px;
+  margin: 12px auto 0;
+  font-size: 14px;
+}
+
+#thong-bao.thanh-cong {
+  color: #2e7d32;
+}
+
+#thong-bao.loi {
+  color: #c62828;
+}
+
+.nut-in {
+  text-align: center;
+  margin-top: 14px;
+}
+
+.chi-khi-in {
+  display: none;
+}
+
+/* ---------- Bản in (window.print) ---------- */
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+  }
+
+  .chi-tren-man-hinh {
+    display: none;
+  }
+
+  .chi-khi-in {
+    display: block;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  /* Ẩn cột "Số lượng có", cột "Chọn mua", các nút và các hàng không mua */
+  #bang-hang thead th:nth-child(3),
+  #bang-hang tbody td:nth-child(3),
+  #bang-hang thead th:nth-child(6),
+  #bang-hang tbody td:nth-child(6),
+  #bang-hang tfoot td:nth-child(2),
+  #bang-hang tfoot td:nth-child(4),
+  #bang-hang tbody tr.khong-chon {
+    display: none;
+  }
+
+  /* Bản in: nền trắng, viền đen (ghi đè màu nền xám của màn hình) */
+  #bang-hang th,
+  #bang-hang td,
+  #bang-hang tbody td:nth-child(n),
+  #bang-hang tfoot td {
+    border-color: #000;
+    background: #fff;
+  }
+
+  #bang-hang th {
+    background: #eee;
+  }
+
+  /* Ô nhập in ra như chữ thường */
+  #bang-hang input[type="text"],
+  #bang-hang input:disabled,
+  #bang-hang input[readonly] {
+    border: none;
+    background: transparent;
+    color: #000;
+    padding: 0;
+    font: inherit;
+  }
+
+  #thong-bao,
+  #thong-bao.thanh-cong {
+    text-align: right;
+    color: #000;
+  }
+}
